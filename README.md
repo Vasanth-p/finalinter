@@ -1,6 +1,6 @@
 # **Inventory Management System**  
 
-Welcome to the **Inventory Management System**! 🚀 
+Welcome to the **Inventory Management System**! 🚀  
 This feature-rich MERN (MongoDB, Express.js, React.js, Node.js) stack application is designed to:  
 - **Streamline inventory tracking**  
 - **Enhance stock visibility**  
