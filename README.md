@@ -136,7 +136,7 @@ Your contributions make a difference! 🎉
 ---
 
 ## 🤝 **Acknowledgments**  
-A big thank you to the entire team for their dedication and hard work in bringing this project to life! 🙌  
+This project was developed as part of the second-round evaluation for Madura Coats. It represents my dedication to delivering a comprehensive and efficient inventory management solution. The work showcases my ability to apply technical skills and problem-solving to real-world business challenges. 🙌
 
 ---
 
