@@ -11,7 +11,7 @@ const EditProduct = ({ product, refreshProducts, closeEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:5000/api/products/${product._id}`, updatedProduct)
+    axios.put(`https://finalinter-backend.onrender.com/api/products/${product._id}`, updatedProduct)
       .then(() => {
         alert('Product updated successfully!');
         refreshProducts(); // Refresh product list after updating
