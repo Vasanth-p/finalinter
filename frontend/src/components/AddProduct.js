@@ -20,7 +20,7 @@ const AddProduct = ({ refreshProducts }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/products', product)
+    axios.post('https://finalinter-backend.onrender.com/api/products', product)
       .then(() => {
         alert('Product added successfully!');
         setProduct({ name: '', category: '', price: '', quantity: '' });
