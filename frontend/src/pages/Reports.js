@@ -10,7 +10,7 @@ const Home = () => {
   // Fetch products from the API
   const fetchProducts = () => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://finalinter-backend.onrender.com/api/products")
       .then((res) => {
         const allProducts = res.data;
 
