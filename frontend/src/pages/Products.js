@@ -93,7 +93,7 @@ const Home = () => {
   // Fetch products from the API
   const fetchProducts = () => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://finalinter-backend.onrender.com/api/products")
       .then((res) => {
 
         const allProducts = res.data;
@@ -147,7 +147,7 @@ const Home = () => {
   // Delete a product
   const deleteProduct = (id) => {
     axios
-      .delete(`http://localhost:5000/api/products/${id}`) // API endpoint for deletion
+      .delete(`https://finalinter-backend.onrender.com/api/products/${id}`) // API endpoint for deletion
       .then(() => {
         alert("Product deleted successfully!");
         fetchProducts(); // Refresh the product list
