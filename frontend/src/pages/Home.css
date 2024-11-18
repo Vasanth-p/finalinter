@@ -1,0 +1,477 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .home-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .breadcrumb {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+.actions {
+  display: flex;
+  justify-content: space-between; /* Ensures buttons are spaced apart */
+  align-items: center; /* Vertically centers the content */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.search-box {
+  width: 65%; /* Adjusted width to give space for buttons */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: #6c63ff; /* Focused input will have a blue border */
+}
+
+.add-product-btn, .generate-report-btn {
+  padding: 12px 20px; /* Increased padding for a more prominent button */
+  font-size: 16px; /* Larger font size for readability */
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.add-product-btn {
+  background-color: #6c63ff; /* Violet background */
+  color: #fff;
+}
+
+.generate-report-btn {
+  background-color: #429605; /* Green background */
+  color: #fff;
+}
+
+.add-product-btn:hover, .generate-report-btn:hover {
+  background-color: #5149d0; /* Darker violet for add button on hover */
+}
+
+.generate-report-btn:hover {
+  background-color: #388e3c; /* Darker green for report button on hover */
+}
+
+.add-product-btn:active, .generate-report-btn:active {
+  transform: scale(0.98); /* Slight shrink when clicked */
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: flex-start; /* Align to the left for small screens */
+  }
+
+  .search-box {
+    width: 100%; /* Full width search box */
+    margin-bottom: 10px; /* Add some spacing below the search input */
+  }
+
+  .add-product-btn, .generate-report-btn {
+    width: 100%; /* Full width buttons */
+    margin-bottom: 10px; /* Space between buttons */
+  }
+}
+
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-table th,
+  .product-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-table th {
+    background-color: #f8f8f8;
+    color: #555;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+  }
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/* Modal Content */
+.modal {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-50px);
+}
+
+.modal.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: #ff4b5c;
+}
+
+/* Modal Form */
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input Fields */
+.modal input,
+.modal select,
+.modal textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus {
+  border-color: #6c63ff;
+}
+
+.modal label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-actions .cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-actions .save-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.modal-actions .cancel-btn:hover {
+  background-color: #b3b3b3;
+}
+
+.modal-actions .save-btn:hover {
+  background-color: #218838;
+}
+
+.modal-actions button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+  }
+}
+
+.low-stock {
+  background-color: #ffe6e6; /* Light red background */
+  color: #d9534f; /* Red text */
+}
+.total-inventory-value {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.critical-stock-banner {
+  background-color: #ffcccc;
+  color: #a00000;
+  padding: 10px 20px;
+  border: 1px solid #ff8888;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.critical-stock-banner ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.critical-stock-banner strong {
+  font-weight: bold;
+}
+.critical-stock-banner {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #721c24;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #f8d7da;
+  background-color: #721c24;
+}
+
+
+.home-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #777;
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  width: 22%;
+}
+
+.critical-stock-banner {
+  background: #ffe5e5;
+  padding: 10px;
+  border: 1px solid #ff4d4d;
+  margin-bottom: 20px;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.chart {
+  width: 48%;
+  margin-bottom: 20px;
+}
+.total-inventory-value {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* Adds space between the boxes */
+  padding: 10px 0px 30px 0px;
+  border-radius: 8px;
+}
+.total-item-box {
+  flex: 1;
+  padding: 25px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.total-item-box span {
+  display: block;
+}
+
+.total-item-box .value {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Total Inventory Value Box with Green Background and Text */
+.total-item-box.total-value {
+  background-color: #28a745; /* Green background */
+}
+
+/* Total Stock Box with Yellow Background and Text */
+.total-item-box.total-stock {
+  background-color: #ffc107; /* Yellow background */
+}
+
+/* Out of Stock Box with Red Background and Text */
+.total-item-box.out-of-stock {
+  background-color: #dc3545; /* Red background */
+}
+
+.total-item-box.out-of-stock .value {
+  color: #ffffff; /* White text */
+}
+
+/* Apply Grey background when Out of Stock is 0 */
+.total-item-box.out-of-stock.no-out-of-stock {
+  background-color: #6c757d; /* Grey background */
+
+}
+
+/* Apply Dark Red background when there are multiple Out of Stock items */
+.total-item-box.out-of-stock.multiple-out-of-stock {
+  background-color: #c82333; /* Darker Red background */
+}
+
+/* Notification Banner */
+.critical-stock-banner {
+  background-color: #f8d7da; /* Light red background for warning */
+  color: #bc0b1d; /* Dark red text color for emphasis */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.critical-stock-banner p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.critical-stock-banner ul {
+  list-style-type:disc; /* Remove default bullet points */
+  margin: 0;
+}
+
+.critical-stock-banner ul li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Button Styles */
+button.edit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-right: 12px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+button.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+button.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+button.delete-btn:hover {
+  background-color: #b21f2d;
+}

@@ -1,0 +1,39 @@
+.header-container {
+  position: sticky; /* Make the header sticky */
+  top: 0;            /* Stick to the top of the page */
+  z-index: 1000;     /* Ensure it stays on top of other content */
+  background-color: rgb(237, 237, 237); /* Optional: set background color for better visibility */
+  padding: 20px 20px; /* Optional: add padding for spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Styling for the <p> tag inside the logo section with monospace font */
+.logo p {
+  font-size: 16px; /* Set font size */
+  color: #555;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-links .active {
+  font-weight: bold;
+  text-decoration: underline;
+}
