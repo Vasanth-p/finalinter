@@ -164,7 +164,7 @@ const Home = () => {
   // Handle product update (edit)
   const handleUpdateProduct = () => {
     axios
-      .put(`http://localhost:5000/api/products/${editProduct._id}`, editProduct)
+      .put(`https://finalinter-backend.onrender.com/api/products/${editProduct._id}`, editProduct)
       .then(() => {
         alert("Product updated successfully!");
         fetchProducts(); // Refresh the product list
