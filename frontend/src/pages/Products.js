@@ -128,7 +128,7 @@ const Home = () => {
   // Add a new product
   const handleAddProduct = () => {
     axios
-      .post("http://localhost:5000/api/products", newProduct) // API endpoint for adding a product
+      .post("https://finalinter-backend.onrender.com/api/products", newProduct) // API endpoint for adding a product
       .then(() => {
         alert("Product added successfully!");
         setShowAddModal(false); // Close the modal
